@@ -14,7 +14,11 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC')
+    
+  }
+
+  performSearch = () => {
+    axios.get('http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC')
       .then(response => {
         this.setState({
           gifs: response.data.data
@@ -23,10 +27,6 @@ export default class App extends Component {
       .catch(error => {
         console.log('Error fetching and parsing data', error);
       });
-  }
-
-  performSearch = () => {
-      
   }
 
 
